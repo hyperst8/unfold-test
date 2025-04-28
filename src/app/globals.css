@@ -68,3 +68,15 @@ a {
 .titleContainer h1 {
   font-size: 2rem;
 }
+
+.flex-col-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .flex-col-row {
+    flex-direction: row;
+  }
+}
