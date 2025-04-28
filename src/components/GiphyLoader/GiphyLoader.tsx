@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./giphyLoader.module.css";
+import { GiphyGif, GiphyApiResponse } from "./types";
 
 const GiphyLoader = () => {
   const [images, setImages] = useState<string[]>([]);
@@ -18,8 +19,8 @@ const GiphyLoader = () => {
       const res = await fetch(
         `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=3&offset=0&rating=g`
       );
-      const data = await res.json();
-      data.data.forEach((gif: any) => {
+      const data: GiphyApiResponse = await res.json();
+      data.data.forEach((gif: GiphyGif) => {
         urls.push(gif.images.fixed_width.url);
       });
       setImages(urls);
