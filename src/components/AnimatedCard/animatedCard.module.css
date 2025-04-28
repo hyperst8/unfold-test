@@ -63,7 +63,7 @@
 }
 
 .expanded .cardImage {
-  transform: scale(1.8); /* Scale up the image */
+  transform: scale(2); /* Scale up the image */
   width: 100%;
   height: 100%;
   object-fit: cover;
