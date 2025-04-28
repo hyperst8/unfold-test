@@ -10,6 +10,7 @@
   transform: translateY(50px);
   animation: fadeUp 1s ease forwards;
   animation-delay: 0.3s;
+  position: relative;
 }
 
 @keyframes fadeUp {
@@ -37,6 +38,9 @@
 
 .content {
   padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
@@ -52,8 +56,97 @@
   margin-bottom: 1rem;
 }
 
+.expanded .imageWrapper {
+  max-width: 100%;
+  margin: 0;
+  overflow: visible;
+}
+
+.expanded .cardImage {
+  transform: scale(1.8); /* Scale up the image */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.expanded .content {
+  opacity: 0; /* Hide the content when the image is expanded */
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.expandedInfo {
+  position: absolute;
+  z-index: 10;
+  bottom: 2rem;
+  left: 2rem;
+}
+
+.expandedTitle {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .author {
-  font-size: 0.875rem;
-  color: #999;
+  font-size: 1.25rem;
+  color: #ffffff;
   text-align: right;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.zoomBtn {
+  width: 60px;
+  height: 60px;
+  background-color: #000;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(90deg);
+}
+
+.icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 2px solid white;
+}
+
+.topLeft {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.bottomRight {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
 }
