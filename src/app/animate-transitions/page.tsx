@@ -1,6 +1,7 @@
 import React from "react";
 import BackButton from "@/components/BackButton/BackButton";
 import AnimatedCard from "@/components/AnimatedCard/AnimatedCard";
+import { bigCities } from "../../data/dummyData";
 
 const AnimatePage = () => {
   return (
@@ -11,24 +12,15 @@ const AnimatePage = () => {
       </div>
 
       <div className="flex-col-row">
-        <AnimatedCard
-          imageUrl="https://chopsticksontheloose.com/wp-content/uploads/2023/08/ce0d98f97cb947559ba1af37f059ee86-jpg.webp"
-          title="Tokyo"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae."
-          authorName="John Doe"
-        />
-        <AnimatedCard
-          imageUrl="https://chopsticksontheloose.com/wp-content/uploads/2023/08/ce0d98f97cb947559ba1af37f059ee86-jpg.webp"
-          title="Tokyo"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae."
-          authorName="John Doe"
-        />
-        <AnimatedCard
-          imageUrl="https://chopsticksontheloose.com/wp-content/uploads/2023/08/ce0d98f97cb947559ba1af37f059ee86-jpg.webp"
-          title="Tokyo"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae."
-          authorName="John Doe"
-        />
+        {bigCities.map((city, index) => (
+          <AnimatedCard
+            key={index}
+            imageUrl={city.image}
+            title={city.name}
+            text={city.text}
+            authorName={city.author}
+          />
+        ))}
       </div>
     </div>
   );
