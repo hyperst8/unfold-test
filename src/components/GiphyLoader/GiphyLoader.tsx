@@ -19,7 +19,7 @@
  */
 
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./giphyLoader.module.css";
 import { GiphyGif, GiphyApiResponse } from "./types";
@@ -27,11 +27,13 @@ import { GiphyGif, GiphyApiResponse } from "./types";
 const GiphyLoader = () => {
   const [images, setImages] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
+  const [visibleImages, setVisibleImages] = useState<string[]>([]);
 
   // Fetch trending GIFs from Giphy API
   const fetchImages = async () => {
     setLoading(true);
     setImages([]);
+    setVisibleImages([]);
 
     try {
       const apiKey = process.env.NEXT_PUBLIC_GIPHY_API_KEY;
@@ -49,6 +51,21 @@ const GiphyLoader = () => {
     }
   };
 
+  // Handle delayed rendering of images
+  useEffect(() => {
+    if (images.length > 0) {
+      let index = 0;
+      const interval = setInterval(() => {
+        setVisibleImages((prev) => [...prev, images[index]]);
+        index++;
+        if (index >= images.length) {
+          clearInterval(interval);
+        }
+      }, 300); // Delay of 300ms between each image
+      return () => clearInterval(interval);
+    }
+  }, [images]);
+
   return (
     <div>
       {/* Render button if no images are loaded */}
@@ -65,20 +82,23 @@ const GiphyLoader = () => {
       {/* Show loading text */}
       {loading && <p className={styles.loadingText}>Loading...</p>}
 
-      {/* Render images if available */}
-      {images.length > 0 && (
+      {/* Render images with animation */}
+      {visibleImages.length > 0 && (
         <div className={styles.imageContainer}>
-          {images.map((url, index) => (
-            <div key={index}>
-              <Image
-                src={url}
-                alt={`Random Gif ${index + 1}`}
-                width={200}
-                height={200}
-                unoptimized
-              />
-            </div>
-          ))}
+          {visibleImages.map(
+            (url, index) =>
+              url && (
+                <div key={index}>
+                  <Image
+                    src={url}
+                    alt={`Random Gif ${index + 1}`}
+                    width={200}
+                    height={200}
+                    unoptimized
+                  />
+                </div>
+              )
+          )}
         </div>
       )}
     </div>
