@@ -84,12 +84,12 @@ const ContactForm = () => {
 
     if (validate()) {
       setSuccessMessage("Form submitted successfully!");
-      setFormData({
-        firstName: "",
-        lastName: "",
-        phoneNumber: "",
-        receiveNewsletter: false,
-      });
+      // setFormData({
+      //   firstName: "",
+      //   lastName: "",
+      //   phoneNumber: "",
+      //   receiveNewsletter: false,
+      // });
       setErrors({});
     }
   };
@@ -180,7 +180,15 @@ const ContactForm = () => {
         {/* Success Message */}
       </form>
       {successMessage && (
-        <p className={styles.successMessage}>{successMessage}</p>
+        <div className={styles.successContainer}>
+          <p className={styles.successMessage}>{successMessage}</p>
+          <p className={styles.thankYouMessage}>
+            Thanks, {formData.firstName} {formData.lastName}
+          </p>
+          <p className={styles.thankYouMessage}>
+            Confirmation send to: {formData.phoneNumber}
+          </p>
+        </div>
       )}
     </>
   );

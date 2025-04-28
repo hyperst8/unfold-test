@@ -49,11 +49,16 @@
   margin-top: 0.25rem;
 }
 
+.successContainer {
+  border: 1px solid #28a745;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
 .successMessage {
-  color: green;
+  color: #28a745;
   font-size: 1rem;
   text-align: center;
-  margin-top: 1rem;
 }
 
 .submitButton {
