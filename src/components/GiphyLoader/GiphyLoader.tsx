@@ -1,3 +1,23 @@
+/**
+ * GiphyLoader Component
+ *
+ * This component fetches and displays trending GIFs from the Giphy API.
+ *
+ * Features:
+ * - Fetches trending GIFs using the Giphy API when the "Load images" button is clicked.
+ * - Displays a loading state while fetching data.
+ * - Renders the fetched GIFs in a responsive layout.
+ *
+ * State:
+ * - `images`: An array of URLs for the fetched GIFs.
+ * - `loading`: A boolean indicating whether the data is being fetched.
+ *
+ * Accessibility:
+ * - The button is disabled while loading to prevent multiple requests.
+ *
+ * @returns {JSX.Element} A functional component that displays trending GIFs.
+ */
+
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";

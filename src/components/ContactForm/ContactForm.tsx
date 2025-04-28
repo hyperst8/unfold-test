@@ -1,3 +1,21 @@
+/**
+ * ContactForm Component
+ *
+ * This component renders a contact form with the following fields:
+ * - First Name (required)
+ * - Last Name (required)
+ * - Phone Number (required, must be 8 digits)
+ * - Receive Newsletter (optional checkbox)
+ *
+ * The form includes field-level validation and displays error messages for invalid inputs.
+ * A success message is shown upon successful submission.
+ *
+ * Accessibility features:
+ * - Uses `aria-invalid` and `aria-describedby` for error handling.
+ * - Includes a form title with `aria-labelledby`.
+ *
+ * @returns {JSX.Element} A fully functional and accessible contact form.
+ */
 "use client";
 import React, { useState } from "react";
 import styles from "./contactForm.module.css";
