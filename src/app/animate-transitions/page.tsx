@@ -13,7 +13,7 @@ const AnimatePage = () => {
       <div>
         <AnimatedCard
           imageUrl="https://chopsticksontheloose.com/wp-content/uploads/2023/08/ce0d98f97cb947559ba1af37f059ee86-jpg.webp"
-          title="Incredible Adventure"
+          title="Tokyo"
           text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae."
           authorName="John Doe"
         />
