@@ -47,12 +47,36 @@
   color: red;
   font-size: 0.875rem;
   margin-top: 0.25rem;
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .successContainer {
+  animation: slideUp 0.5s ease-in-out;
   border: 1px solid #28a745;
   border-radius: 10px;
   padding: 1rem;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .successMessage {
