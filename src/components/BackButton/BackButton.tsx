@@ -1,8 +1,8 @@
 import React from "react";
-import Link from "next/link";
+import TransitionLink from "../TransitionLink/TransitionLink";
 
 const BackButton = () => {
-  return <Link href="/">← Back</Link>;
+  return <TransitionLink href="/">← Back</TransitionLink>;
 };
 
 export default BackButton;

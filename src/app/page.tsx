@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TransitionLink from "@/components/TransitionLink/TransitionLink";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -10,15 +10,15 @@ export default function Home() {
         </h1>
 
         <div className={styles.buttonBlock}>
-          <Link href="/load-giphy" className={styles.button}>
+          <TransitionLink href="/load-giphy" className={styles.button}>
             Load Giphy
-          </Link>
-          <Link href="/contact-form" className={styles.button}>
+          </TransitionLink>
+          <TransitionLink href="/contact-form" className={styles.button}>
             Contact Form
-          </Link>
-          <Link href="/animate-transitions" className={styles.button}>
+          </TransitionLink>
+          <TransitionLink href="/animate-transitions" className={styles.button}>
             Animate Transitions
-          </Link>
+          </TransitionLink>
         </div>
       </main>
       <footer className={styles.footer}>
