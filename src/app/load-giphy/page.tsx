@@ -10,9 +10,7 @@ const LoadGiphyPage = () => {
         <h1>Load from Giphy</h1>
       </div>
 
-      <div>
-        <GiphyLoader />
-      </div>
+      <GiphyLoader />
     </div>
   );
 };
